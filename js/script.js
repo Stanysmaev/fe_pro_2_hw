@@ -53,4 +53,54 @@ let users = [
   "phone": "+1 (837) 586-3283",
   "address": "314 Dunne Place, Bawcomville, Guam, 9053"
   }
-  ]
+  ];
+
+// console.log(users);
+
+// позбутися '$' та ',' у 'balance'
+let balances = [];
+let phones = [];
+let NumberOfUsers = Object.keys(users).length; //получение кол-ва юзеров в массиве объектов
+
+users.forEach((user) => {
+  balances.push(Number(user.balance.slice(1).replace(",", "")));
+});
+
+users.forEach((user) => {
+  phones.push(user.phone);
+});
+
+let newUsers = [];
+
+for(let i = 0; i < NumberOfUsers; ++i){
+  newUsers[i] = {
+  balance: balances[i],
+  "phone": phones[i]
+  }
+}
+
+// console.log(newUsers);
+
+// console.log(balances);
+
+let summOfBalances = balances.reduce((accumulator, currentValue) => accumulator + currentValue, 0).toFixed(2);
+
+// Вивести масив телефонних номерів користувачів, у яких баланс більше 2000 доларів. 
+console.log("Масив телефонних номерів користувачів, у яких баланс більше 2000 доларів: ");
+let arrayOfTelephones = [];
+
+for (let i = 0; i < NumberOfUsers; ++i) {
+  if (balances[i] >= 2000) {
+    arrayOfTelephones.push(phones[i]);
+  }
+}
+  
+console.log(arrayOfTelephones);
+
+
+
+// let arrayOfTelephones = users.find(city => city.balance >= 2000).phone;
+  
+
+// І знайти суму всіх балансів користувачів
+console.log("Сума усіх балансів користувачів: $" + summOfBalances);
