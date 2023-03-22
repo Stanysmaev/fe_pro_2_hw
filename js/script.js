@@ -4,7 +4,7 @@ console.log("Початковий масив: " + numbersArray);
 
 // Знайти суму та кількість позитивних елементів.
 const result = numbersArray.filter(item => item > 0).sort((a, b) => a - b);
-console.log(result);
+// console.log(result);
 let sum = 0; // Сума позитивних елементів
 let numOfPlusElements = result.length;
 numbersArray.forEach((element) => sum += element > 0 ? element : 0) // перебор массива numbersArray + условие (что нужно прибавить к sum)
@@ -31,60 +31,49 @@ const resultNegative = numbersArray.filter(item => item < 0).sort((a, b) => a - 
 let numOfNegativeElements = resultNegative.length;
 console.log(`Кількість негативних елементів: ${numOfNegativeElements}`);
 
-И это не готово
-// // Знайти кількість непарних позитивних елементів.
-// // const NegativeDuplicates = numbersArray.filter(item => item > 0).filter((number, index, numbers) => {// number - элемент массива, index - индекс элемента массива, numbers - представление массива numbersArray
-// //   return numbers.indexOf(number) == index;
-// // });
-// const NegativeDuplicates = numbersArray.filter(item => item > 0).reduce((acc, cur) => acc ^ cur, 0)
-// console.log(NegativeDuplicates);
-
-// // function findUnique(numbers) {
-// //   numbers.sort(function(a, b) {
-// //     return a - b;
-// //   });
-// //   for (var i = 0; i < numbers.length; i += 2) {
-// //     if (numbers[i] != numbers[i + 1]) return numbers[i];
-// //   }
-// // }
-// // console.log(findUnique([1, 8, 4, 4, 6, 1, 8]));
-
-// function findUnique(numbers) {
-//   return numbers.reduce((a, b) => a ^ b);
-// }
-
-// console.log(findUnique([ 1, 8, 3, 4, 4, 6, 1, 8 ]));
-
-// let NumOfNonEl = NegativeDuplicates.length
-// console.log(`Kількість непарних позитивних елементів: ${NumOfNonEl}`);
+// Знайти кількість непарних позитивних елементів.
+let KilkNepPosElem = numbersArray.filter(item => item > 0).filter((num) => {
+	return num % 2 == 1;
+});
+let kolvo = KilkNepPosElem.length
+console.log(`Кількість непарних позитивних елементів: ${kolvo}`);
 
 // Знайти кількість парних позитивних елементів.
-const PositiveDuplicates = numbersArray.filter(item => item > 0).filter((number, index, numbers) => {// number - элемент массива, index - индекс элемента массива, numbers - представление массива numbersArray
-  return numbers.indexOf(number) !== index;
+let KilkParnPosElem = numbersArray.filter(item => item > 0).filter((num) => {
+	return num % 2 == 0;
 });
-let NumOfPosEl = PositiveDuplicates.length
-console.log(`Kількість парних позитивних елементів: ${NumOfPosEl}`);
+let kolvo2 = KilkParnPosElem.length
+console.log(`Кількість парних позитивних елементів: ${kolvo2}`);
 
-
-
-
-
-
-
-
-Закончил здесь
 // Знайти суму парних позитивних елементів.
-const result = numbersArray.filter(item => item > 0).sort((a, b) => a - b);
-console.log(result);
-let sumOfParnPozElem = 0; // Сума парних позитивних елементів
-numbersArray.forEach((element) => sumOfParnPozElem += element > 0 ? element : 0) // перебор массива numbersArray + условие (что нужно прибавить к sum)
-// console.log(numbersArray);
-console.log(`Сума позитивних елементів: ${sumOfParnPozElem}`);
+const SumParnPosElem = numbersArray.filter(item => item > 0).filter((num) => {
+	return num % 2 == 0;
+});
+let sumOfParnPosElem = 0; // Сума парних позитивних елементів
+SumParnPosElem.forEach((num) => sumOfParnPosElem += num > 0 ? num : 0) // перебор массива numbersArray + условие (что нужно прибавить к sum)
+console.log(`Сума парних позитивних елементів: ${sumOfParnPosElem}`);
 
 // Знайти суму непарних позитивних елементів.
-// Знайти добуток позитивних елементів.
-// Знайти найбільший серед елементів масиву, остальні обнулити.
+const SumNeparnPosElem = numbersArray.filter(item => item > 0).filter((num) => {
+	return num % 2 == 1;
+});
+let sumOfNeparnPosElem = 0;
+SumNeparnPosElem.forEach((num) => sumOfNeparnPosElem += num > 0 ? num : 0) // перебор массива numbersArray + условие (что нужно прибавить к sum)
+console.log(`Сума непарних позитивних елементів: ${sumOfNeparnPosElem}`);
 
+// Знайти добуток позитивних елементів.
+const ArrayOfPosElem = numbersArray.filter(item => item > 0);
+let DobOfPosElem = 1;
+ArrayOfPosElem.forEach((e) => DobOfPosElem *= e);
+console.log(ArrayOfPosElem);
+console.log(`Добуток позитивних елементів: ${DobOfPosElem}`);
+
+// Знайти найбільший серед елементів масиву, остальні обнулити.
+// let maxElement = Math.max.apply(null, numbersArray);
+// console.log(maxElement);
+const maxNum = Math.max(...numbersArray);
+const ArrayOfZeros = numbersArray.map(num => num == maxNum ? num : 0);
+console.log(`найбільший елемент серед масиву це ${maxNum}, та обнулення массиву окрім максимального числа: ${ArrayOfZeros}`);
 
 
 
