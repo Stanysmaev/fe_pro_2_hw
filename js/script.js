@@ -4,11 +4,9 @@ console.log("Початковий масив: " + numbersArray);
 
 // Знайти суму та кількість позитивних елементів.
 const result = numbersArray.filter(item => item > 0).sort((a, b) => a - b);
-// console.log(result);
 let sum = 0; // Сума позитивних елементів
 let numOfPlusElements = result.length;
 numbersArray.forEach((element) => sum += element > 0 ? element : 0) // перебор массива numbersArray + условие (что нужно прибавить к sum)
-// console.log(numbersArray);
 console.log(`Сума позитивних елементів: ${sum}`);
 console.log(`Кількість позитивних елементів: ${numOfPlusElements}`);
 
@@ -65,62 +63,9 @@ console.log(`Сума непарних позитивних елементів: 
 const ArrayOfPosElem = numbersArray.filter(item => item > 0);
 let DobOfPosElem = 1;
 ArrayOfPosElem.forEach((e) => DobOfPosElem *= e);
-console.log(ArrayOfPosElem);
 console.log(`Добуток позитивних елементів: ${DobOfPosElem}`);
 
 // Знайти найбільший серед елементів масиву, остальні обнулити.
-// let maxElement = Math.max.apply(null, numbersArray);
-// console.log(maxElement);
 const maxNum = Math.max(...numbersArray);
 const ArrayOfZeros = numbersArray.map(num => num == maxNum ? num : 0);
 console.log(`найбільший елемент серед масиву це ${maxNum}, та обнулення массиву окрім максимального числа: ${ArrayOfZeros}`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// numOfElements = prompt('Введіть кількість елементів масиву:', 3); // кількість елементів масиву
-// console.log("Кількість елементів масиву: " + numOfElements);
-
-// for(var i=0; i < numOfElements; i++) {
-//   // ArrayOfUser[i] = prompt(`Введіть елемент масиву № ${i + 1}:`, +i); // заповнення масивву
-// };
-  
-
-
-// function compare(a, b){
-// return a - b;
-// }
-
-// numbersArray.sort(compare);
-
-// let positiveElementsArray = numbersArray.filter(item => item > 0).sort((a, b) => a - b);
-// console.log("Відсортований масив: " + positiveElementsArray);
-
-
-
-
-
-
-
