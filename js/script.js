@@ -1,10 +1,10 @@
-// Створіть масив елементів (Наприклад: ["apple", "carrot", "pear", "celery"]).
-const arr = ["apple", "pear", "celery"];
+const array = [1, 2, 3, 4, 5, 6, 7];
+removeElement(array, 5);
+console.log(array);
+// Результат: [1, 2, 3, 4, 6, 7]
 
-// Виведіть послідовно кожен елемент масиву з допомогою forEach().
-arr.forEach(element => console.log(element));
-
-// Виведіть послідовно кожен елемент масиву з допомогою for ... of.
-for (const element of arr) {
-  console.log(element);
+// Реалізуйте функцію removeElement(array, item), щоб видалити елемент item з масиву array.
+function removeElement(someArray, item){ // someArray = array, item = 5;
+  const num = someArray.indexOf(item); // знаходимо індекс елемента item
+  someArray.splice(num, 1); // видаляємо 1 елемент по індексу num (елемента item)
 }
