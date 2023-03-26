@@ -104,3 +104,12 @@ console.log(arrayOfTelephones);
 
 // І знайти суму всіх балансів користувачів
 console.log("Сума усіх балансів користувачів: $" + summOfBalances);
+
+
+
+
+
+
+const arr = [1, 2, 3];
+const result = arr.reduce((acc, elem) => acc + elem, 0);
+console.log(result);
