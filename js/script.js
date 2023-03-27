@@ -1,105 +1,58 @@
-/*Дано масив з елементами різних типів. Створити функцію яка вираховує середнє арифметичне лише 
-  числових елементів даного масиву. */
-let arrayOfElementsOfSomeTypes = [1, 'apple', 20, 'pear', 15, 9];
-
-function FilterAndReduce(array) {
-  let onlyNum = array.filter((item) => typeof item === 'number');
-  // console.log(onlyNum);
-  let SredneeArifm = onlyNum.reduce((el, a) => el + a, 0) / onlyNum.length;
-  return SredneeArifm;
+/* Задача 1 */
+function functionReverseNumber(number) {
+  const reversedNumber = number.toString().split('').reverse().join('');
+  return Number(reversedNumber);
 }
 
-console.log(
-  `Середнє арифметичне відфільтрованого масиву: ${FilterAndReduce(
-    arrayOfElementsOfSomeTypes
-  )}`
-);
+const reversedNumber = functionReverseNumber(1388);
+console.log(reversedNumber);
 
-/*Написати функцію doMath(x, znak, y), яка отримує 3 аргументи: числа x і y, рядок znak. 
-  У змінній znak може бути: +, -, *, /, %, ^ (ступінь ).Вивести результат математичної дії, 
-  вказаної в змінній znak.Обидва числа і знак виходять від користувача.*/
-let x = prompt('Введіть число №1: ', 1),
-  znak = prompt(
-    'Введіть математичну дію(наприклад: +, -, *, /, %, ^(ступінь)):',
-    '-'
-  ),
-  y = prompt('Введіть число №2: ', 2);
-
-function doMath(x, znak, y) {
-  if (znak === '+') {
-    return (result = x + y);
-  }
-  if (znak === '-') {
-    result = x - y;
-    return result;
-  }
-  if (znak === '*') {
-    result = x * y;
-    return result;
-  }
-  if (znak === '/') {
-    result = x / y;
-    return result;
-  }
-  if (znak === '%') {
-    result = x % y;
-    return result;
-  }
-  if (znak === '^') {
-    result = x ** y;
-    return result;
-  }
-  return;
+/* Задача 2 */
+function findLongestWord(str) {
+  return str.split(' ').reduce((a, b) => (b.length > a.length ? b : a));
 }
 
-if (
-  znak === '+' ||
-  znak === '-' ||
-  znak === '*' ||
-  znak === '/' ||
-  znak === '%' ||
-  znak === '^'
-) {
-  console.log(`${x} ${znak} ${y} = ${doMath(x, znak, y)}`);
-} else {
-  console.log(`Неправильна арифметична дія!`);
+console.log(`Output: ${findLongestWord(`Web Development Tutorial`)}`);
+
+/* Задача 3 */
+const string = 'webmaster';
+
+function sortAndReverse(string) {
+  return string.split('').sort().join('');
 }
 
-/*Написати функцію заповнення даними користувача двомірного масиву. Довжину основного масиву і 
-  внутрішніх масивів задає користувач. Значення всіх елементів всіх масивів задає користувач.*/
-let stovpci = prompt('Введіть кількість стовпців: ', 2),
-  ryadki = prompt('Введіть кількість рядків: ', 2);
+console.log(sortAndReverse(string));
 
-function Matrix2(firstArr, secondArr) {
-  let mainArray = [];
+/* Задача 4 */
+const funDestructuring = (array) => {
+  const [firstWord, secondWord] = array;
+  return firstWord + ' ' + secondWord;
+};
+console.log(funDestructuring(['Hello', 'world!']));
 
-  for (let i = 0; i < firstArr; i++) {
-    let subArray = [];
-    for (let j = 0; j < secondArr; j++) {
-      subArray.push(prompt(`Заповніть елемент[${i}][${j}]:`));
-    }
-    mainArray.push(subArray);
-  }
+/* Задача 5 */
+const array = [
+  { name: 'Sasha', experience: 1 },
+  { name: 'Egor', experience: 3 },
+  { name: 'Misha', experience: 4 },
+  { name: 'Alexey', experience: 4 },
+  { name: 'Vladimir', experience: 0.5 },
+];
 
-  return mainArray;
-}
-let mainArray = Matrix2(ryadki, stovpci);
-console.log(mainArray);
+const functionExpirienceChecker = (arr) => {
+  const experienceArray = [];
 
-/*Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 
-'func(" hello world", ['l', 'd'])' поверне нам "heo wor". Вихідний рядок та символи для 
-видалення задає користувач.*/
-let row = prompt('Введіть речення: ', 'hello world');
-let symbolsToErase = prompt(
-  `Введіть символи, які треба видалити(наприклад ['l', 'd']): `,
-  `ld`
-);
+  arr.forEach((item) => item.experience > 2 && experienceArray.push(item.name));
 
-function eraser(row, symbolsToErase) {
-  return row
-    .split('')
-    .filter((symbol) => !symbolsToErase.includes(symbol))
-    .join('');
-}
+  return experienceArray;
 
-console.log(`${eraser(row, symbolsToErase)}`);
+  // const mapped = arr.map((person) => {
+  //   if (person.experience > 2) {
+  //     return person.name;
+  //   }
+  // });
+  // return mapped.filter((personName) => !!personName);
+};
+
+const experienced = functionExpirienceChecker(array);
+console.log(experienced);
